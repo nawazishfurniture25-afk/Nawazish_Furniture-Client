@@ -1,0 +1,29 @@
+# Nawazish Furniture — robots.txt
+# https://nawazishfurniture.in
+
+User-agent: *
+Allow: /
+
+# Disallow admin panel
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /checkout
+Disallow: /order-success
+
+# Allow everything else
+Allow: /
+Allow: /collections
+Allow: /custom
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /refund
+Allow: /shipping
+Allow: /cookies
+
+# Sitemap
+Sitemap: https://nawazishfurniture.in/sitemap.xml
+
+# Crawl delay (be gentle)
+Crawl-delay: 1

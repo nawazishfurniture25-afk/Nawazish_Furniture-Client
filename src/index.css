@@ -1,0 +1,295 @@
+/* Font imports PEHLE */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;500&display=swap');
+
+/* Tailwind directives BAAD me */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================== BASE ==================== */
+:root {
+    --bg: #f6f1e7;
+    --bg2: #efe7d6;
+    --bg3: #e6dcc6;
+    --card: #fbf7ee;
+    --ink: #1c1a16;
+    --ink2: #3d3830;
+    --muted: #6b6256;
+    --gold: #a37b34;
+    --gold-bright: #c8a464;
+    --gold-deep: #7a5a26;
+    --terra: #b8542c;
+    --forest: #2f4a3c;
+    --line: rgba(28, 26, 22, 0.12);
+    --line-strong: rgba(28, 26, 22, 0.22);
+}
+
+[data-theme='dark'] {
+    --bg: #0a0908;
+    --bg2: #100e0c;
+    --bg3: #161311;
+    --card: #131110;
+    --ink: #f4ede1;
+    --ink2: #c5bcac;
+    --muted: #a0978a;
+    --gold: #c8a464;
+    --gold-bright: #e6c98a;
+    --gold-deep: #8a6d3a;
+    --terra: #d8743f;
+    --forest: #5a8a72;
+    --line: rgba(244, 237, 225, 0.09);
+    --line-strong: rgba(244, 237, 225, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+::selection {
+    background: var(--gold);
+    color: #fff;
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold-bright);
+    outline-offset: 2px;
+}
+
+/* ==================== UTILITIES ==================== */
+.container-custom {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+    .container-custom {
+        padding: 0 32px;
+    }
+}
+
+.section {
+    padding: 90px 0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 64px 0;
+    }
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 0 26px;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    color: var(--ink);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    background: transparent;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateY(101%);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transform: translateY(0);
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #fff;
+}
+
+.btn-gold:hover {
+    background: var(--gold-deep);
+}
+
+[data-theme='dark'] .btn-gold {
+    color: #1c1a16;
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 10px 0;
+    min-height: 44px;
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    outline: 0;
+    border-color: var(--gold);
+}
+
+.input::placeholder {
+    color: var(--muted);
+    opacity: 0.6;
+}
+
+/* Cards */
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.6s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card-3d:hover {
+        transform: perspective(1200px) rotateX(-4deg) rotateY(4deg) translateY(-10px);
+        box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.35),
+            0 0 50px rgba(163, 123, 52, 0.25);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 48s linear infinite;
+}
+
+/* Hero fade-up animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure smooth transitions */
+.touch-pan-y {
+    touch-action: pan-y;
+}
+
+/* Hide scrollbar for filter chips */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Bento card hover effect */
+.card-3d {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card-3d:hover {
+        transform: perspective(1200px) rotateX(-4deg) rotateY(4deg) translateY(-10px);
+        box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.35),
+            0 0 50px rgba(163, 123, 52, 0.25);
+    }
+}
+
+/* Drawer slide-in animation */
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
